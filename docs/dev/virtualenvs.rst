@@ -3,9 +3,9 @@
 Pipenv & Virtual Environments
 =============================
 
-.. image:: https://farm5.staticflickr.com/4290/35294660055_42c02b2316_k_d.jpg
+.. image:: /_static/photos/35294660055_42c02b2316_k_d.jpg
 
-This tutorial walks you through installing and using Python packages. 
+This tutorial walks you through installing and using Python packages.
 
 It will show you how to install and use the necessary tools and make strong
 recommendations on best practices. Keep in mind that Python is used for a great
@@ -25,7 +25,7 @@ Make sure you've got Python & pip
 Before you go any further, make sure you have Python and that it's available
 from your command line. You can check this by simply running:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ python --version
 
@@ -34,7 +34,7 @@ install the latest 3.x version from `python.org`_ or refer to the
 `Installing Python`_ section of this guide.
 
 .. Note:: If you're newcomer and you get an error like this:
-    
+
     .. code-block:: python
 
         >>> python
@@ -47,10 +47,10 @@ install the latest 3.x version from `python.org`_ or refer to the
     `getting started tutorial`_ for an introduction to using your operating
     system's shell and interacting with Python.
 
-Additionally, you'll need to make sure you have :ref:`pip` available. You can
+Additionally, you'll need to make sure you have `pip`_ available. You can
 check this by running:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ pip --version
 
@@ -60,22 +60,23 @@ using your OS package manager, you may have to `install pip <https://pip.pypa.io
 
 .. _getting started tutorial: https://opentechschool.github.io/python-beginners/en/getting_started.html#what-is-python-exactly
 .. _python.org: https://python.org
+.. _pip: https://pypi.org/project/pip/
 .. _Homebrew: https://brew.sh
-.. _Installing Python: http://docs.python-guide.org/en/latest/starting/installation/
+.. _Installing Python: https://docs.python-guide.org/starting/installation/
 
 
 Installing Pipenv
 -----------------
 
-:ref:`Pipenv` is a dependency manager for Python projects. If you're familiar
+`Pipenv`_ is a dependency manager for Python projects. If you're familiar
 with Node.js' `npm`_ or Ruby's `bundler`_, it is similar in spirit to those
-tools. While :ref:`pip` can install Python packages, Pipenv is recommended as
+tools. While `pip`_ can install Python packages, Pipenv is recommended as
 it's a higher-level tool that simplifies dependency management for common use
 cases.
 
 Use ``pip`` to install Pipenv:
 
-.. code-block:: python
+.. code-block:: console
 
     $ pip install --user pipenv
 
@@ -100,6 +101,7 @@ Use ``pip`` to install Pipenv:
     user ``PATH`` permanently in the `Control Panel`_. You may need to log
     out for the ``PATH`` changes to take effect.
 
+.. _Pipenv: https://docs.pipenv.org/
 .. _npm: https://www.npmjs.com/
 .. _bundler: http://bundler.io/
 .. _user base: https://docs.python.org/3/library/site.html#site.USER_BASE
@@ -114,16 +116,18 @@ Pipenv manages dependencies on a per-project basis. To install packages,
 change into your project's directory (or just an empty directory for this
 tutorial) and run:
 
-.. code-block:: bash
+.. code-block:: console
 
-    $ cd myproject
+    $ cd project_folder
     $ pipenv install requests
 
 Pipenv will install the excellent `Requests`_ library and create a ``Pipfile``
-for you in your project's directory. The :ref:`Pipfile` is used to track which
+for you in your project's directory. The `Pipfile`_ is used to track which
 dependencies your project needs in case you need to re-install them, such as
 when you share your project with others. You should get output similar to this
 (although the exact paths shown will vary):
+
+.. _Pipfile: https://github.com/pypa/pipfile
 
 .. code-block:: text
 
@@ -152,7 +156,7 @@ when you share your project with others. You should get output similar to this
     Adding requests to Pipfile's [packages]...
     P.S. You have excellent taste! ✨ 🍰 ✨
 
-.. _Requests: https://python-requests.org
+.. _Requests: http://docs.python-requests.org/en/master/
 
 
 Using installed packages
@@ -171,7 +175,7 @@ use it:
 
 Then you can run this script using ``pipenv run``:
 
-.. code-block:: bash
+.. code-block:: console
 
     $ pipenv run python main.py
 
@@ -196,7 +200,7 @@ Congratulations, you now know how to install and use Python packages! ✨ 🍰 �
 Lower level: virtualenv
 =======================
 
-`virtualenv <http://pypi.python.org/pypi/virtualenv>`_ is a tool to create
+`virtualenv <http://pypi.org/project/virtualenv>`_ is a tool to create
 isolated Python environments. virtualenv creates a folder which contains all the
 necessary executables to use the packages that a Python project would need.
 
@@ -207,38 +211,41 @@ Install virtualenv via pip:
 .. code-block:: console
 
   $ pip install virtualenv
- 
-Test your installation
+
+Test your installation:
 
 .. code-block:: console
 
    $ virtualenv --version
 
 Basic Usage
-~~~~~~~~~~~
+-----------
 
 1. Create a virtual environment for a project:
 
 .. code-block:: console
 
-   $ cd my_project_folder
-   $ virtualenv my_project
+   $ cd project_folder
+   $ virtualenv venv
 
-``virtualenv my_project`` will create a folder in the current directory which will
+``virtualenv venv`` will create a folder in the current directory which will
 contain the Python executable files, and a copy of the ``pip`` library which you
 can use to install other packages. The name of the virtual environment (in this
-case, it was ``my_project``) can be anything; omitting the name will place the files
+case, it was ``venv``) can be anything; omitting the name will place the files
 in the current directory instead.
 
+.. note::
+    'venv' is the general convention used globally. As it is readily available in ignore files (eg: .gitignore')
+
 This creates a copy of Python in whichever directory you ran the command in,
-placing it in a folder named :file:`my_project`.
+placing it in a folder named :file:`venv`.
 
 You can also use the Python interpreter of your choice (like
 ``python2.7``).
 
 .. code-block:: console
 
-   $ virtualenv -p /usr/bin/python2.7 my_project
+   $ virtualenv -p /usr/bin/python2.7 venv
 
 or change the interpreter globally with an env variable in ``~/.bashrc``:
 
@@ -250,14 +257,22 @@ or change the interpreter globally with an env variable in ``~/.bashrc``:
 
 .. code-block:: console
 
-   $ source my_project/bin/activate
+   $ source venv/bin/activate
 
 The name of the current virtual environment will now appear on the left of
-the prompt (e.g. ``(my_project)Your-Computer:your_project UserName$)`` to let you know
+the prompt (e.g. ``(venv)Your-Computer:project_folder UserName$)`` to let you know
 that it's active. From now on, any package that you install using pip will be
-placed in the ``my_project`` folder, isolated from the global Python installation.
+placed in the ``venv`` folder, isolated from the global Python installation.
 
-Install packages as usual, for example:
+For Windows, the same command mentioned in step 1 can be used to create a virtual environment. However, activating the environment requires a slightly different command.
+
+Assuming that you are in your project directory:
+
+.. code-block:: console
+
+    C:\Users\SomeUser\project_folder> venv\Scripts\activate
+
+Install packages using the ``pip`` command:
 
 .. code-block:: console
 
@@ -268,20 +283,23 @@ Install packages as usual, for example:
 
 .. code-block:: console
 
-   $ deactivate
+    $ deactivate
 
 This puts you back to the system's default Python interpreter with all its
 installed libraries.
 
 To delete a virtual environment, just delete its folder. (In this case,
-it would be ``rm -rf my_project``.)
+it would be ``rm -rf venv``.)
 
 After a while, though, you might end up with a lot of virtual environments
-littered across your system, and its possible you'll forget their names or
+littered across your system, and it's possible you'll forget their names or
 where they were placed.
 
+.. note::
+    Python has included venv module from version 3.3. For more details: `venv <https://docs.python.org/3/library/venv.html>`_.
+
 Other Notes
-~~~~~~~~~~~
+-----------
 
 Running ``virtualenv`` with the option ``--no-site-packages`` will not
 include the packages that are installed globally. This can be useful
@@ -289,7 +307,7 @@ for keeping the package list clean in case it needs to be accessed later.
 [This is the default behavior for ``virtualenv`` 1.7 and later.]
 
 In order to keep your environment consistent, it's a good idea to "freeze"
-the current state of the environment packages. To do this, run
+the current state of the environment packages. To do this, run:
 
 .. code-block:: console
 
@@ -298,7 +316,7 @@ the current state of the environment packages. To do this, run
 This will create a :file:`requirements.txt` file, which contains a simple
 list of all the packages in the current environment, and their respective
 versions. You can see the list of installed packages without the requirements
-format using "pip list". Later it will be easier for a different developer
+format using ``pip list``. Later it will be easier for a different developer
 (or you, if you need to re-create the environment) to install the same packages
 using the same versions:
 
@@ -310,7 +328,7 @@ This can help ensure consistency across installations, across deployments,
 and across developers.
 
 Lastly, remember to exclude the virtual environment folder from source
-control by adding it to the ignore list.
+control by adding it to the ignore list (see :ref:`Version Control Ignores<version_control_ignores>`).
 
 .. _virtualenvwrapper-ref:
 
@@ -339,7 +357,7 @@ To install (make sure **virtualenv** is already installed):
 
   $ pip install virtualenvwrapper-win
 
-In Windows, the default path for WORKON_HOME is %USERPROFILE%\Envs
+In Windows, the default path for WORKON_HOME is %USERPROFILE%\\Envs
 
 Basic Usage
 ~~~~~~~~~~~
@@ -348,23 +366,23 @@ Basic Usage
 
 .. code-block:: console
 
-   $ mkvirtualenv my_project
+   $ mkvirtualenv project_folder
 
-This creates the :file:`my_project` folder inside :file:`~/Envs`.
+This creates the :file:`project_folder` folder inside :file:`~/Envs`.
 
 2. Work on a virtual environment:
 
 .. code-block:: console
 
-   $ workon my_project
+   $ workon project_folder
 
 Alternatively, you can make a project, which creates the virtual environment,
-and also a project directory inside ``$PROJECT_HOME``, which is ``cd`` -ed into
-when you ``workon myproject``.
+and also a project directory inside ``$WORKON_HOME``, which is ``cd``-ed into
+when you ``workon project_folder``.
 
 .. code-block:: console
 
-   $ mkproject myproject
+   $ mkproject project_folder
 
 **virtualenvwrapper** provides tab-completion on environment names. It really
 helps when you have a lot of environments and have trouble remembering their
@@ -409,20 +427,15 @@ virtualenv-burrito
 With `virtualenv-burrito <https://github.com/brainsik/virtualenv-burrito>`_, you
 can have a working virtualenv + virtualenvwrapper environment in a single command.
 
-autoenv
+direnv
 -------
-When you ``cd`` into a directory containing a :file:`.env`, `autoenv <https://github.com/kennethreitz/autoenv>`_
+When you ``cd`` into a directory containing a :file:`.env`, `direnv <https://direnv.net>`_
 automagically activates the environment.
 
 Install it on Mac OS X using ``brew``:
 
 .. code-block:: console
 
-   $ brew install autoenv
+   $ brew install direnv
 
-And on Linux:
-
-.. code-block:: console
-
-   $ git clone git://github.com/kennethreitz/autoenv.git ~/.autoenv
-   $ echo 'source ~/.autoenv/activate.sh' >> ~/.bashrc
+On Linux follow the instructions at `direnv.net <https://direnv.net>`

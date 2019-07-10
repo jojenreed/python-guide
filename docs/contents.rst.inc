@@ -24,7 +24,7 @@ New to Python? Let's properly setup up your Python environment:
 
 - Using Virtualenvs with Pipenv:
 
-.. toctree::
+ .. toctree::
     :maxdepth: 2
 
     dev/virtualenvs
@@ -33,7 +33,7 @@ New to Python? Let's properly setup up your Python environment:
 Python Development Environments
 -------------------------------
 
-This part of the guide focus on the Python development environment,
+This part of the guide focuses on the Python development environment,
 and the best-practice tools that are available for writing Python code.
 
 .. toctree::
@@ -97,11 +97,12 @@ different scenarios.
 Shipping Great Python Code
 --------------------------
 
-This part of the guide focuses on deploying your Python code.
+This part of the guide focuses on sharing and deploying your Python code.
 
 .. toctree::
    :maxdepth: 2
 
+   shipping/publishing
    shipping/packaging
    shipping/freezing
 
@@ -110,7 +111,7 @@ Additional Notes
 ----------------
 
 This part of the guide, which is mostly prose, begins with some
-background information about Python, then focuses on next steps.
+background information about Python, and then focuses on next steps.
 
 .. toctree::
    :maxdepth: 2
@@ -137,8 +138,3 @@ Contribution notes and legal information (for those interested).
    notes/contribute
    notes/license
    notes/styleguide
-
-
-
-
-

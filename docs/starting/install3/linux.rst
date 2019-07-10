@@ -1,9 +1,11 @@
 .. _install3-linux:
 
-Installing Python 3 on Linux
-============================
 
-.. image:: https://farm5.staticflickr.com/4276/34435689480_2e6f358510_k_d.jpg
+############################
+Installing Python 3 on Linux
+############################
+
+.. image:: /_static/photos/34435689480_2e6f358510_k_d.jpg
 
 This document describes how to install Python 3.6 on Ubuntu Linux machines.
 
@@ -18,9 +20,10 @@ If you are using Ubuntu 16.10 or newer, then you can easily install Python 3.6 w
     $ sudo apt-get update
     $ sudo apt-get install python3.6
 
-If you're using another version of Ubuntu (e.g. the latest LTS release), we recommend using the `deadsnakes PPA <https://launchpad.net/~fkrull/+archive/ubuntu/deadsnakes>`_ to install Python 3.6::
+If you're using another version of Ubuntu (e.g. the latest LTS release), we recommend using the `deadsnakes PPA <https://launchpad.net/~deadsnakes/+archive/ubuntu/ppa>`_ to install Python 3.6::
 
-    $ sudo add-apt-repository ppa:fkrull/deadsnakes
+    $ sudo apt-get install software-properties-common
+    $ sudo add-apt-repository ppa:deadsnakes/ppa
     $ sudo apt-get update
     $ sudo apt-get install python3.6
 
@@ -41,8 +44,9 @@ to read about `multiple Python versions available in Fedora`_.
 .. _multiple Python versions available in Fedora: https://developer.fedoraproject.org/tech/languages/python/multiple-pythons.html
 
 
+*********************
 Working with Python 3
----------------------
+*********************
 
 At this point, you may have system Python 2.7 available as well.
 
@@ -58,10 +62,12 @@ This will launch the Python 2 interpreter.
 
 This will launch the Python 3 interpreter.
 
-Setuptools & Pip
-----------------
 
-The two most crucial third-party Python packages are `setuptools <https://pypi.python.org/pypi/setuptools>`_ and `pip <https://pip.pypa.io/en/stable/>`_.
+****************
+Setuptools & Pip
+****************
+
+The two most crucial third-party Python packages are `setuptools <https://pypi.org/project/setuptools>`_ and `pip <https://pip.pypa.io/en/stable/>`_.
 
 Once installed, you can download, install and uninstall any compliant Python software
 product with a single command. It also enables you to add this network installation
@@ -85,14 +91,15 @@ command is meant for Python 2, while the ``pip3`` command is meant for Python 3.
 
     $ command -v pip3
 
-However, when using virtual environments (described bellow), you don't need to
+However, when using virtual environments (described below), you don't need to
 care about that.
 
 
+*****************************
 Pipenv & Virtual Environments
------------------------------
+*****************************
 
-The next step it to install Pipenv, so you can install dependencies and manage virtual environments. 
+The next step is to install Pipenv, so you can install dependencies and manage virtual environments.
 
 A Virtual Environment is a tool to keep the dependencies required by different projects
 in separate places, by creating virtual Python environments for them. It solves the
@@ -106,6 +113,5 @@ So, onward! To the :ref:`Pipenv & Virtual Environments <virtualenvironments-ref>
 
 --------------------------------
 
-This page is a remixed version of `another guide <http://www.stuartellis.eu/articles/python-development-windows/>`_,
+This page is a remixed version of `another guide <https://www.stuartellis.name/articles/python-development-windows/>`_,
 which is available under the same license.
-
